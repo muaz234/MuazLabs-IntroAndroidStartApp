@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/macbook-336704_640">
+    android:background="@drawable/macbook_336704_640">
 
     <TextView
         android:id="@+id/second_intro_text"

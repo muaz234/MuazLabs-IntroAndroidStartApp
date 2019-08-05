@@ -3,4 +3,32 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    // add dots inactive colors
+    <color name="dot_dark_screen_1">#d1395c</color>
+    <color name="dot_dark_screen_2">#20d2bb</color>
+    <color name="dot_dark_screen_3">#2278d4</color>
+    <color name="dot_dark_screen_4">#a854d4</color>
+
+    // dot active colors
+    <color name="dot_light_screen_1">#f98da5</color>
+    <color name="dot_light_screen_2">#8cf9eb</color>
+    <color name="dot_light_screen_3">#93c6fd</color>
+    <color name="dot_light_screen_4">#e4b5fc</color>
+
+
+    <array name="dots_inactive_array">
+        <color>@color/dot_dark_screen_1</color>
+        <color>@color/dot_dark_screen_2</color>
+        <color>@color/dot_dark_screen_3</color>
+        <color>@color/dot_dark_screen_4</color>
+    </array>
+
+    <array name="dots_active_color">
+        <color>@color/dot_light_screen_1</color>
+        <color>@color/dot_light_screen_2</color>
+        <color>@color/dot_light_screen_3</color>
+        <color>@color/dot_light_screen_4</color>
+    </array>
+
 </resources>

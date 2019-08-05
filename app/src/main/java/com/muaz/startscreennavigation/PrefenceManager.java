@@ -8,7 +8,7 @@ public class PrefenceManager {
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     Context context;
-    Boolean first_time
+    Boolean first_time;
 
     public PrefenceManager(Context context){
         editor = context.getSharedPreferences("com.muaz.startscreennavigation", Context.MODE_PRIVATE).edit();

@@ -18,17 +18,17 @@
 
 
     <array name="dots_inactive_array">
-        <color>@color/dot_dark_screen_1</color>
-        <color>@color/dot_dark_screen_2</color>
-        <color>@color/dot_dark_screen_3</color>
-        <color>@color/dot_dark_screen_4</color>
+        <item>@color/dot_dark_screen_1</item>
+        <item>@color/dot_dark_screen_2</item>
+        <item>@color/dot_dark_screen_3</item>
+        <item>@color/dot_dark_screen_4</item>
     </array>
 
     <array name="dots_active_color">
-        <color>@color/dot_light_screen_1</color>
-        <color>@color/dot_light_screen_2</color>
-        <color>@color/dot_light_screen_3</color>
-        <color>@color/dot_light_screen_4</color>
+        <item>@color/dot_light_screen_1</item>
+        <item>@color/dot_light_screen_2</item>
+        <item>@color/dot_light_screen_3</item>
+        <item>@color/dot_light_screen_4</item>
     </array>
 
 </resources>

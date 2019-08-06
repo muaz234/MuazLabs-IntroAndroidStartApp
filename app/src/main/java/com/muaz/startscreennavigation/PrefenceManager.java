@@ -8,10 +8,13 @@ public class PrefenceManager {
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     Context context;
-    Boolean first_time;
+    Boolean first_time = true;
+//    editor = context.getSharedPreferences("com.muaz.startscreennavigation", Context.MODE_PRIVATE).edit();
+
 
     public PrefenceManager(Context context){
-        editor = context.getSharedPreferences("com.muaz.startscreennavigation", Context.MODE_PRIVATE).edit();
+        preferences = context.getSharedPreferences(context.getPackageName(), context.MODE_PRIVATE);
+        editor = preferences.edit();
     }
 
     public  void setFirstTimeLaunch(Boolean first_time){
@@ -20,6 +23,7 @@ public class PrefenceManager {
     }
 
     public boolean checkFirstTimeLaunch(){
+        preferences = context.getSharedPreferences("com.muaz.startscreennavigation", Context.MODE_PRIVATE);
         return preferences.getBoolean("first", true);
     }
 

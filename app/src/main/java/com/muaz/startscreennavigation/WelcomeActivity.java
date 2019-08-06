@@ -41,7 +41,7 @@ public class WelcomeActivity extends AppCompatActivity {
         btn_previous = findViewById(R.id.previous_btn);
         view_pager = findViewById(R.id.view_pager);
 
-        if (manager.checkFirstTimeLaunch()) {
+        if (!manager.checkFirstTimeLaunch()) {
             launchHomeScreen();
             finish();
         }

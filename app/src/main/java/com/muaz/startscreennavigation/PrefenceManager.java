@@ -5,15 +5,16 @@ import android.content.SharedPreferences;
 
 public class PrefenceManager {
 
-    SharedPreferences preferences;
+
     SharedPreferences.Editor editor;
     Context context;
     Boolean first_time = true;
 //    editor = context.getSharedPreferences("com.muaz.startscreennavigation", Context.MODE_PRIVATE).edit();
 
+    SharedPreferences preferences;
 
     public PrefenceManager(Context context){
-        preferences = context.getSharedPreferences(context.getPackageName(), context.MODE_PRIVATE);
+        preferences = context.getSharedPreferences(context.getPackageName(), 0);
         editor = preferences.edit();
     }
 
@@ -23,7 +24,7 @@ public class PrefenceManager {
     }
 
     public boolean checkFirstTimeLaunch(){
-        preferences = context.getSharedPreferences("com.muaz.startscreennavigation", Context.MODE_PRIVATE);
+//        preferences = context.getSharedPreferences("com.muaz.startscreennavigation", Context.MODE_PRIVATE);
         return preferences.getBoolean("first", true);
     }
 

@@ -14,11 +14,11 @@ public class PrefenceManager {
     SharedPreferences preferences;
 
     public PrefenceManager(Context context){
-        preferences = context.getSharedPreferences(context.getPackageName(), 0);
+        preferences = context.getSharedPreferences("launch", Context.MODE_PRIVATE);
         editor = preferences.edit();
     }
 
-    public  void setFirstTimeLaunch(Boolean first_time){
+    public  void setFirstTimeLaunch(boolean first_time){
         editor.putBoolean("first", first_time);
         editor.commit();
     }

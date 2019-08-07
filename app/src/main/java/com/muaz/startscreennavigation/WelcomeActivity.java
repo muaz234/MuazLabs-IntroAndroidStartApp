@@ -26,7 +26,8 @@ public class WelcomeActivity extends AppCompatActivity {
     LinearLayout layoutDots;
     Button btn_next, btn_previous;
     ViewPager view_pager;
-    PrefenceManager manager = new PrefenceManager(this);
+    Context context;
+    PrefenceManager manager;
     public int[] layouts;
     public TextView[] dots;
     public MyViewPagerAdapter myViewPagerAdapter;
@@ -35,7 +36,7 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-
+        manager = new PrefenceManager(this);
         layoutDots = findViewById(R.id.layout_dots);
         btn_next = findViewById(R.id.next_btn);
         btn_previous = findViewById(R.id.previous_btn);
@@ -109,6 +110,13 @@ public class WelcomeActivity extends AppCompatActivity {
         return view_pager.getCurrentItem() + i;
     }
 
+    public void launchHomeScreen() {
+        manager.setFirstTimeLaunch(false);
+        Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int i, float v, int i1) {
@@ -129,11 +137,7 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     };
 
-    public void launchHomeScreen() {
-        manager.setFirstTimeLaunch(false);
-        Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
+
 
     public void changeStatusBarColor() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -143,7 +147,7 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     }
 
-    class MyViewPagerAdapter extends PagerAdapter {
+    public class MyViewPagerAdapter extends PagerAdapter {
 
         LayoutInflater inflater;
 

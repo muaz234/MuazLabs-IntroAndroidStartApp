@@ -28,25 +28,28 @@ public class WelcomeActivity extends AppCompatActivity {
     ViewPager view_pager;
     Context context;
     PrefenceManager manager;
-    public int[] layouts;
-    public TextView[] dots;
-    public MyViewPagerAdapter myViewPagerAdapter;
+    int[] layouts;
+    TextView[] dots;
+    MyViewPagerAdapter myViewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+
         manager = new PrefenceManager(this);
-        layoutDots = findViewById(R.id.layout_dots);
-        btn_next = findViewById(R.id.next_btn);
-        btn_previous = findViewById(R.id.previous_btn);
-        view_pager = findViewById(R.id.view_pager);
+
 
         if (!manager.checkFirstTimeLaunch()) {
             launchHomeScreen();
             finish();
         }
 
+        setContentView(R.layout.activity_welcome);
+
+        layoutDots = findViewById(R.id.layout_dots);
+        btn_next = findViewById(R.id.next_btn);
+        btn_previous = findViewById(R.id.previous_btn);
+        view_pager = findViewById(R.id.view_pager);
         // add all layout
 
         layouts = new int[]{
@@ -84,7 +87,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     }
 
-    public void addBottomDots ( int currentPage){
+    public void addBottomDots (int currentPage)
+    {
         dots = new TextView[layouts.length];
 
         int[] colorsActive = getResources().getIntArray(R.array.dots_active_color);
@@ -102,8 +106,6 @@ public class WelcomeActivity extends AppCompatActivity {
         if (dots.length > 0) {
             dots[currentPage].setTextColor(colorsActive[currentPage]);
         }
-
-
     }
 
     public int getItem(int i) {
@@ -114,6 +116,7 @@ public class WelcomeActivity extends AppCompatActivity {
         manager.setFirstTimeLaunch(false);
         Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
 
@@ -121,6 +124,7 @@ public class WelcomeActivity extends AppCompatActivity {
         @Override
         public void onPageScrolled(int i, float v, int i1) {
         }
+
 
         @Override
         public void onPageSelected(int i) {
@@ -156,6 +160,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
             inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View view = inflater.inflate(layouts[position], container, false);
+            container.addView(view);
+
             return view;
         }
 
